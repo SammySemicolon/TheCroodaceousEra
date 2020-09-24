@@ -1,13 +1,9 @@
 package mod.coda.croodaceouscraft.init;
 
 import mod.coda.croodaceouscraft.Croods;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Food;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,6 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class CroodsItems {
 
     public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, Croods.MOD_ID);
+
+    public static final RegistryObject<Item> RAMU_EGG = REGISTER.register("ramu_egg", () -> new Item(new Item.Properties().group(Croods.GROUP).maxStackSize(1).food(new Food.Builder().hunger(8).saturation(0.3f).build())));
 
     public static final RegistryObject<BlockItem> CROODACEOUS_SAND = REGISTER.register("croodaceous_sand", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SAND.get(), new Item.Properties().group(Croods.GROUP)));
     public static final RegistryObject<BlockItem> CROODACEOUS_SANDSTONE = REGISTER.register("croodaceous_sandstone", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SANDSTONE.get(), new Item.Properties().group(Croods.GROUP)));
@@ -31,26 +29,4 @@ public class CroodsItems {
     public static final RegistryObject<BlockItem> CROODACEOUS_STONE = REGISTER.register("croodaceous_stone", () -> new BlockItem(CroodsBlocks.CROODACEOUS_STONE.get(), new Item.Properties().group(Croods.GROUP)));
 
     public static final RegistryObject<BlockItem> CROODACEOUS_SHRUB = REGISTER.register("croodaceous_shrub", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SHRUB.get(), new Item.Properties().group(Croods.GROUP)));
-
-    //public static final Item CROODACEOUS_SHRUB = register(CroodsBlocks.CROODACEOUS_SHRUB.get(), Croods.GROUP);
-
-    private static Item register(Block block, ItemGroup group) {
-        return register(new BlockItem(block, (new Item.Properties()).group(group)));
-    }
-
-    private static Item register(BlockItem blockItem) {
-        return register(blockItem.getBlock(), blockItem);
-    }
-
-    protected static Item register(Block block, Item item) {
-        return register(Registry.BLOCK.getKey(block), item);
-    }
-
-    private static Item register(ResourceLocation key, Item item) {
-        if (item instanceof BlockItem) {
-            ((BlockItem)item).addToBlockToItemMap(Item.BLOCK_TO_ITEM, item);
-        }
-
-        return Registry.register(Registry.ITEM, key, item);
-    }
 }
