@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "croodaceouscraft:block/croodaceous_sandstone_top"
+    }
+}

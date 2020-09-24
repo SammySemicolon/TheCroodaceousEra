@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "croodaceouscraft:block/cut_croodaceous_sandstone_slab" },
+        "type=top": { "model": "croodaceouscraft:block/cut_croodaceous_sandstone_slab_top" },
+        "type=double": { "model": "croodaceouscraft:block/cut_croodaceous_sandstone" }
+    }
+}

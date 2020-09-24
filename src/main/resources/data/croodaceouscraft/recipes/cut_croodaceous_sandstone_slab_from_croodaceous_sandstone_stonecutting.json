@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "croodaceouscraft:croodaceous_sandstone"
+  },
+  "result": "croodaceouscraft:cut_croodaceous_sandstone_slab",
+  "count": 2
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "croodaceouscraft:smooth_croodaceous_sandstone"
+    }
+  },
+  "result": {
+    "item": "croodaceouscraft:smooth_croodaceous_sandstone_stairs",
+    "count": 4
+  }
+}

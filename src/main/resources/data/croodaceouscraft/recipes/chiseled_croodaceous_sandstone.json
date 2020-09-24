@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "croodaceouscraft:croodaceous_sandstone_slab"
+    }
+  },
+  "result": {
+    "item": "croodaceouscraft:chiseled_croodaceous_sandstone"
+  }
+}

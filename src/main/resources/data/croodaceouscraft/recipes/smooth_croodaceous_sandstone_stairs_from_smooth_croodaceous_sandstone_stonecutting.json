@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "croodaceouscraft:smooth_croodaceous_sandstone"
+  },
+  "result": "croodaceouscraft:smooth_croodaceous_sandstone_stairs",
+  "count": 1
+}

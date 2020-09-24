@@ -1,0 +1,9 @@
+modLoader="javafml" #mandatory
+loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+[[mods]] #mandatory
+modId="croodaceouscraft" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Croodaceous Craft" #mandatory
+credits="Coda, SimplePotato, Dia Monde" #optional
+description='''
+This mod aims to bring content from The Croods movie into Minecraft!'''
