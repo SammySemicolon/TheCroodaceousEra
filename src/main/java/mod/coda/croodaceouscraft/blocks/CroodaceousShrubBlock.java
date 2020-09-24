@@ -10,7 +10,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
-public class CroodaceousShrubBlock extends BushBlock implements net.minecraftforge.common.IShearable {
+public class CroodaceousShrubBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 26.0D, 15.0D);
 
     public CroodaceousShrubBlock(Block.Properties builder) {
