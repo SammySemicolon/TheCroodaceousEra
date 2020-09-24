@@ -4,6 +4,6 @@ loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft versio
 modId="croodaceouscraft" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Croodaceous Craft" #mandatory
-credits="Coda, SimplePotato, Dia Monde" #optional
+credits="Coda, SimplePotato, Dia Monde, Ash" #optional
 description='''
 This mod aims to bring content from The Croods movie into Minecraft!'''
