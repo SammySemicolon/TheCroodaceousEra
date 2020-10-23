@@ -1,11 +1,13 @@
 package mod.coda.croodaceouscraft.init;
 
 import mod.coda.croodaceouscraft.Croods;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import mod.coda.croodaceouscraft.biome.CroodaceousDesertBiome;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class CroodsBiomes {
-    public static final RegistryKey<Biome> CROODACEOUS_DESERT = RegistryKey.func_240903_a_(Registry.BIOME_KEY, new ResourceLocation(Croods.MOD_ID, "croodaceous_desert"));
+    public static final DeferredRegister<Biome> REGISTER = DeferredRegister.create(ForgeRegistries.BIOMES, Croods.MOD_ID);
+    public static final RegistryObject<Biome> CROODACEOUS_DESERT = REGISTER.register("croodaceous_desert", CroodaceousDesertBiome::make);
 }

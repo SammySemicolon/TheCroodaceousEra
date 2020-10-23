@@ -10,5 +10,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class CroodsFeatures {
     public static final DeferredRegister<Feature<?>> REGISTER = DeferredRegister.create(ForgeRegistries.FEATURES, Croods.MOD_ID);
 
-    public static final RegistryObject<RockFeature> ROCKS = REGISTER.register("rocks", RockFeature::new);
+    public static final RockFeature ROCKS = new RockFeature();
+
+    static {
+        REGISTER.register("rocks", () -> ROCKS);
+    }
 }
