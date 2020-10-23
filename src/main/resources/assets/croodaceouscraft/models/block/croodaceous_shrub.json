@@ -1,4 +1,5 @@
 {
+	"ambientocclusion": false,
 	"textures": {
 		"0": "croodaceouscraft:block/shrub_bl",
 		"1": "croodaceouscraft:block/shrub_br",
