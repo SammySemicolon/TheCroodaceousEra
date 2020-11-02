@@ -5,7 +5,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 
 public class CroodaceousDesertBiome {
@@ -28,9 +27,6 @@ public class CroodaceousDesertBiome {
         DefaultBiomeFeatures.withLavaAndWaterSprings(generationBuilder);
         DefaultBiomeFeatures.withFrozenTopLayer(generationBuilder);
         generationBuilder.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, CroodsFeatures.ROCKS.withConfiguration(NoFeatureConfig.field_236559_b_).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).func_242729_a(10));
-        generationBuilder.withStructure(StructureFeatures.field_244155_u);
-        generationBuilder.withStructure(StructureFeatures.field_244135_a);
-        generationBuilder.withStructure(StructureFeatures.field_244160_z);
         return new Biome.Builder().precipitation(Biome.RainType.NONE).category(Biome.Category.DESERT).depth(0.125F).scale(0.05F).temperature(2.0F).downfall(0.0F).setEffects(new BiomeAmbience.Builder().setWaterColor(0x3F76E4).setWaterFogColor(0x50533).setFogColor(0xC0D8FF).withSkyColor(0x6EB1FF).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(spawnBuilder.copy()).withGenerationSettings(generationBuilder.build()).build();
     }
 }

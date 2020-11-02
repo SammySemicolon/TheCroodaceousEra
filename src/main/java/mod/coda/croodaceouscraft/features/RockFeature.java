@@ -1,5 +1,6 @@
 package mod.coda.croodaceouscraft.features;
 
+import mod.coda.croodaceouscraft.init.CroodsBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -33,7 +34,7 @@ public class RockFeature extends Feature<NoFeatureConfig> {
                     for (int k = -5; k <= 5; k++) {
                         for (int m = -5; m <= 5; m++) {
                             if (k * k + m * m <= remove * remove)
-                                if (MathHelper.abs(k) < 4 && MathHelper.abs(m) < 4) seedReader.setBlockState(pos.add(k, j, m), Blocks.STONE.getDefaultState(), 2);
+                                if (MathHelper.abs(k) < 4 && MathHelper.abs(m) < 4) seedReader.setBlockState(pos.add(k, j, m), CroodsBlocks.CROODACEOUS_STONE.get().getDefaultState(), 2);
                         }
                     }
                 }
