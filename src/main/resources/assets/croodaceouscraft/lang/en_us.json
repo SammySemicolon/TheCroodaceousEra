@@ -17,5 +17,9 @@
   "block.croodaceouscraft.croodaceous_stone": "Croodaceous Stone",
   "block.croodaceouscraft.croodaceous_shrub": "Croodaceous Shrub",
 
+  "entity.croodaceouscraft.jackrobat": "Jackrobat",
+
+  "item.croodaceouscraft.jackrobat_spawn_egg": "Jackrobat Spawn Egg",
+
   "biome.croodaceouscraft.croodaceous_desert": "Croodaceous Desert"
 }

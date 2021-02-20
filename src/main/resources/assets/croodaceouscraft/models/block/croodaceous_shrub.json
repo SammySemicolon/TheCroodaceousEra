@@ -1,15 +1,15 @@
 {
 	"ambientocclusion": false,
 	"textures": {
-		"0": "croodaceouscraft:block/shrub_bl",
-		"1": "croodaceouscraft:block/shrub_br",
-		"2": "croodaceouscraft:block/shrub_tl",
-		"3": "croodaceouscraft:block/shrub_tr",
-		"5": "croodaceouscraft:block/shrub_br_2",
-		"6": "croodaceouscraft:block/shrub_bl_2",
-		"7": "croodaceouscraft:block/shrub_tl_2",
-		"8": "croodaceouscraft:block/shrub_tr_2",
-		"particle": "croodaceouscraft:block/shrub_bl"
+		"0": "croodaceouscraft:block/shrub/shrub_bl",
+		"1": "croodaceouscraft:block/shrub/shrub_br",
+		"2": "croodaceouscraft:block/shrub/shrub_tl",
+		"3": "croodaceouscraft:block/shrub/shrub_tr",
+		"5": "croodaceouscraft:block/shrub/shrub_br_2",
+		"6": "croodaceouscraft:block/shrub/shrub_bl_2",
+		"7": "croodaceouscraft:block/shrub/shrub_tl_2",
+		"8": "croodaceouscraft:block/shrub/shrub_tr_2",
+		"particle": "croodaceouscraft:block/shrub/shrub_bl"
 	},
 	"elements": [
 		{
