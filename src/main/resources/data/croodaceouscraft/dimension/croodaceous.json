@@ -1,0 +1,15 @@
+{
+  "type": "croodaceouscraft:croodaceous",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 0,
+    "biome_source": {
+      "type": "minecraft:checkerboard",
+      "seed": 0,
+      "biomes": [
+        "croodaceouscraft:croodaceous_desert"
+      ]
+    },
+    "settings": "minecraft:overworld"
+  }
+}

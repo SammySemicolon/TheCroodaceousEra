@@ -16,10 +16,14 @@
   "block.croodaceouscraft.smooth_croodaceous_sandstone_slab": "Smooth Croodaceous Sandstone Slab",
   "block.croodaceouscraft.croodaceous_stone": "Croodaceous Stone",
   "block.croodaceouscraft.croodaceous_shrub": "Croodaceous Shrub",
+  "block.croodaceouscraft.desert_baobab_branches": "Desert Baobab Branches",
+  "block.croodaceouscraft.desert_baobab_wall_branches": "Desert Baobab Wall Branches",
 
   "entity.croodaceouscraft.jackrobat": "Jackrobat",
+  "entity.croodaceouscraft.liyote": "Liyote",
 
   "item.croodaceouscraft.jackrobat_spawn_egg": "Jackrobat Spawn Egg",
+  "item.croodaceouscraft.liyote_spawn_egg": "Liyote Spawn Egg",
 
   "biome.croodaceouscraft.croodaceous_desert": "Croodaceous Desert"
 }

@@ -1,4 +1,4 @@
-package mod.coda.croodaceouscraft.blocks;
+package mod.coda.croodaceouscraft.block;
 
 import mod.coda.croodaceouscraft.init.CroodsBlocks;
 import net.minecraft.block.Block;

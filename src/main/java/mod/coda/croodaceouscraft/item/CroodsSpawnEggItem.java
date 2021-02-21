@@ -1,4 +1,4 @@
-package mod.coda.croodaceouscraft.items;
+package mod.coda.croodaceouscraft.item;
 
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.DefaultDispenseItemBehavior;
