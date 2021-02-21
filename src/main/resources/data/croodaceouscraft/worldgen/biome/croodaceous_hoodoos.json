@@ -22,26 +22,18 @@
     }
   },
   "starts": [],
-  "spawners": {
-    "creature": [
-      {
-        "type": "croodaceouscraft:liyote",
-        "weight": 1,
-        "minCount": 3,
-        "maxCount": 5
-      }
-    ]
-  },
+  "spawners": {},
   "spawn_costs": {},
   "carvers": {
     "air": [
-      "minecraft:cave"
+      "minecraft:cave",
+      "minecraft:nether_cave"
     ]
   },
   "features": [
     [
       "croodaceouscraft:patch_croodaceous_shrub",
-      "croodaceouscraft:desert_trees"
+      "croodaceouscraft:rock_formation"
     ],
     [
       "minecraft:ore_dirt",

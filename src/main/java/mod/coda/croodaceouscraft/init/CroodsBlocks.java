@@ -1,6 +1,8 @@
 package mod.coda.croodaceouscraft.init;
 
 import mod.coda.croodaceouscraft.Croods;
+import mod.coda.croodaceouscraft.block.BranchesBlock;
+import mod.coda.croodaceouscraft.block.BranchesWallBlock;
 import mod.coda.croodaceouscraft.block.CroodaceousShrubBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -32,8 +34,8 @@ public class CroodsBlocks {
     public static final RegistryObject<Block> DESERT_BAOBAB_LOG = register("desert_baobab_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> CROODACEOUS_SHRUB = register("croodaceous_shrub", () -> new CroodaceousShrubBlock(Block.Properties.create(Material.ORGANIC, MaterialColor.BROWN).doesNotBlockMovement().sound(SoundType.PLANT).hardnessAndResistance(0.0f)));
-    public static final RegistryObject<Block> DESERT_BAOBAB_BRANCHES = register("desert_baobab_branches", () -> new CoralFanBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.BROWN).sound(SoundType.PLANT).setRequiresTool().doesNotBlockMovement().zeroHardnessAndResistance()));
-    public static final RegistryObject<Block> DESERT_BAOBAB_WALL_BRANCHES = register("desert_baobab_wall_branches", () -> new DeadCoralWallFanBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.BROWN).sound(SoundType.PLANT).setRequiresTool().doesNotBlockMovement().zeroHardnessAndResistance()));
+    public static final RegistryObject<Block> DESERT_BAOBAB_BRANCHES = register("desert_baobab_branches", () -> new BranchesBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.BROWN).sound(SoundType.PLANT).doesNotBlockMovement().zeroHardnessAndResistance()));
+    public static final RegistryObject<Block> DESERT_BAOBAB_WALL_BRANCHES = register("desert_baobab_wall_branches", () -> new BranchesWallBlock(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.BROWN).sound(SoundType.PLANT).doesNotBlockMovement().zeroHardnessAndResistance()));
 
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
         RegistryObject<T> object = REGISTER.register(name, block);

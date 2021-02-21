@@ -6,6 +6,7 @@ import mod.coda.croodaceouscraft.client.model.LiyoteModel;
 import mod.coda.croodaceouscraft.entity.LiyoteEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.FoxHeldItemLayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 
@@ -19,6 +20,7 @@ public class LiyoteRenderer extends MobRenderer<LiyoteEntity, LiyoteModel<Liyote
     });
     public LiyoteRenderer(EntityRendererManager manager) {
         super(manager, new LiyoteModel<>(), 0.45f);
+        this.addLayer(new LiyoteHeldItemLayer(this));
     }
 
     @Override

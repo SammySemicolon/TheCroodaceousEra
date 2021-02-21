@@ -1,50 +1,60 @@
 package mod.coda.croodaceouscraft.entity;
 
-import mod.coda.croodaceouscraft.entity.ai.FollowLeaderGoal;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.nbt.NBTUtil;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.particles.ItemParticleData;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.Stream;
+import java.util.function.Predicate;
 
 public class LiyoteEntity extends CreatureEntity {
-//    private static final DataParameter<Byte> LIYOTE_FLAGS = EntityDataManager.createKey(LiyoteEntity.class, DataSerializers.BYTE);
     private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(LiyoteEntity.class, DataSerializers.VARINT);
+    private static final Predicate<ItemEntity> TRUSTED_TARGET_SELECTOR = (p_213489_0_) -> {
+        return !p_213489_0_.cannotPickup() && p_213489_0_.isAlive();
+    };
     private LiyoteEntity groupLeader;
     private int groupSize = 8;
+    private float interestedAngle;
+    private float interestedAngleO;
 
     public LiyoteEntity(EntityType<? extends LiyoteEntity> type, World worldIn) {
         super(type, worldIn);
+        this.setCanPickUpLoot(true);
     }
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new SwimGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
-//        this.goalSelector.addGoal(2, new LiyoteEntity.SleepGoal());
-        this.goalSelector.addGoal(3, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new FollowLeaderGoal(this));
+        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, PlayerEntity.class, 10.0F, 1.8D, 1.6D, EntityPredicates.NOT_SPECTATING::test));
+        this.goalSelector.addGoal(3, new LiyoteEntity.FindItemsGoal());
+        this.goalSelector.addGoal(4, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
-
     }
 
     public static AttributeModifierMap.MutableAttribute registerAttributes() {
@@ -75,47 +85,6 @@ public class LiyoteEntity extends CreatureEntity {
         return 0.6F;
     }
 
-    protected boolean func_212800_dy() {
-        return !this.hasGroupLeader();
-    }
-
-    public boolean hasGroupLeader() {
-        return this.groupLeader != null && this.groupLeader.isAlive();
-    }
-
-    public LiyoteEntity func_212803_a(LiyoteEntity groupLeaderIn) {
-        this.groupLeader = groupLeaderIn;
-        groupLeaderIn.increaseGroupSize();
-        return groupLeaderIn;
-    }
-
-    public void leaveGroup() {
-        this.groupLeader.decreaseGroupSize();
-        this.groupLeader = null;
-    }
-
-    private void increaseGroupSize() {
-        ++this.groupSize;
-    }
-
-    private void decreaseGroupSize() {
-        --this.groupSize;
-    }
-
-    public boolean canGroupGrow() {
-        return this.isGroupLeader() && this.groupSize < this.getMaxGroupSize();
-    }
-
-    public void tick() {
-        super.tick();
-        if (this.isGroupLeader() && this.world.rand.nextInt(200) == 1) {
-            List<LiyoteEntity> list = this.world.getEntitiesWithinAABB(this.getClass(), this.getBoundingBox().grow(8.0D, 8.0D, 8.0D));
-            if (list.size() <= 1) {
-                this.groupSize = 1;
-            }
-        }
-    }
-
     @Override
     protected void registerData() {
         super.registerData();
@@ -142,155 +111,131 @@ public class LiyoteEntity extends CreatureEntity {
         setVariant(compound.getInt("Variant"));
     }
 
-
-//    @Override
-//    public void livingTick() {
-//        super.livingTick();
-//        if (this.isSitting() || this.isMovementBlocked()) {
-//            this.isJumping = false;
-//            this.moveStrafing = 0.0F;
-//            this.moveForward = 0.0F;
-//        }
-//    }
-
-//    public void writeAdditional(CompoundNBT compound) {
-//        super.writeAdditional(compound);
-//
-//        compound.putBoolean("Sitting", this.isSitting());
-//    }
-
-//    public void readAdditional(CompoundNBT compound) {
-//        super.readAdditional(compound);
-//
-//        this.setSitting(compound.getBoolean("Sitting"));
-//    }
-
-//    public boolean isSitting() {
-//        return this.getLiyoteFlag(32);
-//    }
-
-//    private void setSitting(boolean p_213485_1_) {
-//        this.setLiyoteFlag(32, p_213485_1_);
-//    }
-
-//    private void setLiyoteFlag(int p_213505_1_, boolean p_213505_2_) {
-//        if (p_213505_2_) {
-//            this.dataManager.set(LIYOTE_FLAGS, (byte)(this.dataManager.get(LIYOTE_FLAGS) | p_213505_1_));
-//        } else {
-//            this.dataManager.set(LIYOTE_FLAGS, (byte)(this.dataManager.get(LIYOTE_FLAGS) & ~p_213505_1_));
-//        }
-//    }
-
-//    private boolean getLiyoteFlag(int p_213507_1_) {
-//        return (this.dataManager.get(LIYOTE_FLAGS) & p_213507_1_) != 0;
-//    }
-
-//    private void func_213454_em() {
-//        this.setSitting(false);
-//    }
-
-//    private void func_213499_en() {
-//        this.setSitting(false);
-//    }
-
-//    private boolean func_213478_eo() {
-//        return !this.isSitting();
-//    }
-
-    public boolean isGroupLeader() {
-        return this.groupSize > 1;
-    }
-
-    public boolean inRangeOfGroupLeader() {
-        return this.getDistanceSq(this.groupLeader) <= 121.0D;
-    }
-
-    public void moveToGroupLeader() {
-        if (this.hasGroupLeader()) {
-            this.getNavigator().tryMoveToEntityLiving(this.groupLeader, 1.0D);
+    @OnlyIn(Dist.CLIENT)
+    public void handleStatusUpdate(byte id) {
+        if (id == 45) {
+            ItemStack itemstack = this.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+            if (!itemstack.isEmpty()) {
+                for(int i = 0; i < 8; ++i) {
+                    Vector3d vector3d = (new Vector3d(((double)this.rand.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D)).rotatePitch(-this.rotationPitch * ((float)Math.PI / 180F)).rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F));
+                    this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, itemstack), this.getPosX() + this.getLookVec().x / 2.0D, this.getPosY(), this.getPosZ() + this.getLookVec().z / 2.0D, vector3d.x, vector3d.y + 0.05D, vector3d.z);
+                }
+            }
+        } else {
+            super.handleStatusUpdate(id);
         }
     }
 
-    public int getMaxGroupSize() {
-        return groupSize;
+    @OnlyIn(Dist.CLIENT)
+    public float func_213475_v(float p_213475_1_) {
+        return MathHelper.lerp(p_213475_1_, this.interestedAngleO, this.interestedAngle) * 0.11F * (float)Math.PI;
     }
 
-    public void func_212810_a(Stream<LiyoteEntity> p_212810_1_) {
-        p_212810_1_.limit((long)(this.getMaxGroupSize() - this.groupSize)).filter((p_212801_1_) -> {
-            return p_212801_1_ != this;
-        }).forEach((p_212804_1_) -> {
-            p_212804_1_.func_212803_a(this);
-        });
+    @Override
+    public void tick() {
+        super.tick();
+        this.interestedAngleO = this.interestedAngle;
+        this.interestedAngle += (1.0F - this.interestedAngle) * 0.4F;
+    }
+
+    public boolean canPickUpItem(ItemStack itemstackIn) {
+        EquipmentSlotType equipmentslottype = MobEntity.getSlotForItemStack(itemstackIn);
+        if (!this.getItemStackFromSlot(equipmentslottype).isEmpty()) {
+            return false;
+        } else {
+            return equipmentslottype == EquipmentSlotType.MAINHAND && super.canPickUpItem(itemstackIn);
+        }
+    }
+
+    public boolean canEquipItem(ItemStack stack) {
+        Item item = stack.getItem();
+        ItemStack itemstack = this.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+        return itemstack.isEmpty() && item.isFood();
+    }
+
+    private void spitOutItem(ItemStack stackIn) {
+        if (!stackIn.isEmpty() && !this.world.isRemote) {
+            ItemEntity itementity = new ItemEntity(this.world, this.getPosX() + this.getLookVec().x, this.getPosY() + 1.0D, this.getPosZ() + this.getLookVec().z, stackIn);
+            itementity.setPickupDelay(40);
+            itementity.setThrowerId(this.getUniqueID());
+            this.playSound(SoundEvents.ENTITY_FOX_SPIT, 1.0F, 1.0F);
+            this.world.addEntity(itementity);
+        }
+    }
+
+    private void spawnItem(ItemStack stackIn) {
+        ItemEntity itementity = new ItemEntity(this.world, this.getPosX(), this.getPosY(), this.getPosZ(), stackIn);
+        this.world.addEntity(itementity);
+    }
+
+    protected void updateEquipmentIfNeeded(ItemEntity itemEntity) {
+        ItemStack itemstack = itemEntity.getItem();
+        if (this.canEquipItem(itemstack)) {
+            int i = itemstack.getCount();
+            if (i > 1) {
+                this.spawnItem(itemstack.split(i - 1));
+            }
+
+            this.spitOutItem(this.getItemStackFromSlot(EquipmentSlotType.MAINHAND));
+            this.triggerItemPickupTrigger(itemEntity);
+            this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack.split(1));
+            this.inventoryHandsDropChances[EquipmentSlotType.MAINHAND.getIndex()] = 2.0F;
+            this.onItemPickup(itemEntity, itemstack.getCount());
+            itemEntity.remove();
+        }
+
     }
 
     @Nullable
     public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
         super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
         if (spawnDataIn == null) {
-            spawnDataIn = new LiyoteEntity.GroupData(this);
             if (rand.nextDouble() > 0.9) setVariant(1);
             else {
                 setVariant(0);
             }
         }
-        else {
-            this.func_212803_a(((LiyoteEntity.GroupData)spawnDataIn).groupLeader);
-        }
 
         return spawnDataIn;
     }
 
-    public static class GroupData implements ILivingEntityData {
-        public final LiyoteEntity groupLeader;
 
-        public GroupData(LiyoteEntity groupLeaderIn) {
-            this.groupLeader = groupLeaderIn;
+    class FindItemsGoal extends Goal {
+        public FindItemsGoal() {
+            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+        }
+
+        public boolean shouldExecute() {
+            if (!LiyoteEntity.this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).isEmpty()) {
+                return false;
+            }
+            else if (LiyoteEntity.this.getAttackTarget() == null && LiyoteEntity.this.getRevengeTarget() == null) {
+                if (LiyoteEntity.this.getRNG().nextInt(10) != 0) {
+                    return false;
+                } else {
+                    List<ItemEntity> list = LiyoteEntity.this.world.getEntitiesWithinAABB(ItemEntity.class, LiyoteEntity.this.getBoundingBox().grow(8.0D, 8.0D, 8.0D), LiyoteEntity.TRUSTED_TARGET_SELECTOR);
+                    return !list.isEmpty() && LiyoteEntity.this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).isEmpty();
+                }
+            } else {
+                return false;
+            }
+        }
+
+        public void tick() {
+            List<ItemEntity> list = LiyoteEntity.this.world.getEntitiesWithinAABB(ItemEntity.class, LiyoteEntity.this.getBoundingBox().grow(8.0D, 8.0D, 8.0D), LiyoteEntity.TRUSTED_TARGET_SELECTOR);
+            ItemStack itemstack = LiyoteEntity.this.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+            if (itemstack.isEmpty() && !list.isEmpty()) {
+                LiyoteEntity.this.getNavigator().tryMoveToEntityLiving(list.get(0), (double)1.2F);
+            }
+
+        }
+
+        public void startExecuting() {
+            List<ItemEntity> list = LiyoteEntity.this.world.getEntitiesWithinAABB(ItemEntity.class, LiyoteEntity.this.getBoundingBox().grow(8.0D, 8.0D, 8.0D), LiyoteEntity.TRUSTED_TARGET_SELECTOR);
+            if (!list.isEmpty()) {
+                LiyoteEntity.this.getNavigator().tryMoveToEntityLiving(list.get(0), (double)1.2F);
+            }
+
         }
     }
-
-//    class SleepGoal extends Goal {
-//        private int field_220825_c = LiyoteEntity.this.rand.nextInt(140);
-//
-//        public SleepGoal() {
-//            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
-//        }
-//
-//        public boolean shouldExecute() {
-//            if (LiyoteEntity.this.moveStrafing == 0.0F && LiyoteEntity.this.moveVertical == 0.0F && LiyoteEntity.this.moveForward == 0.0F) {
-//                return this.func_220823_j() || LiyoteEntity.this.isSitting();
-//            } else {
-//                return false;
-//            }
-//        }
-//
-//        public boolean shouldContinueExecuting() {
-//            return this.func_220823_j();
-//        }
-//
-//        private boolean func_220823_j() {
-//            if (this.field_220825_c > 0) {
-//                --this.field_220825_c;
-//                return false;
-//            } else {
-//                return LiyoteEntity.this.world.isDaytime() && this.func_220813_g();
-//            }
-//        }
-//
-//        protected boolean func_220813_g() {
-//            BlockPos blockpos = new BlockPos(LiyoteEntity.this.getPosX(), LiyoteEntity.this.getBoundingBox().maxY, LiyoteEntity.this.getPosZ());
-//            return LiyoteEntity.this.world.canSeeSky(blockpos) && LiyoteEntity.this.getBlockPathWeight(blockpos) >= 0.0F;
-//        }
-//
-//        public void resetTask() {
-//            this.field_220825_c = LiyoteEntity.this.rand.nextInt(140);
-//            LiyoteEntity.this.func_213499_en();
-//        }
-//
-//        public void startExecuting() {
-//            LiyoteEntity.this.setJumping(false);
-//            LiyoteEntity.this.setSitting(true);
-//            LiyoteEntity.this.getNavigator().clearPath();
-//            LiyoteEntity.this.getMoveHelper().setMoveTo(LiyoteEntity.this.getPosX(), LiyoteEntity.this.getPosY(), LiyoteEntity.this.getPosZ(), 0.0D);
-//        }
-//    }
 }

@@ -1,37 +1,37 @@
 {
+  "type": "minecraft:decorated",
   "config": {
-    "feature": {
-      "config": {
-        "feature": {
-          "config": {
-            "feature": {
-              "config": {},
-              "type": "croodaceouscraft:rock_formation"
-            },
-            "decorator": {
-              "config": {
-                "bottom_offset": 0,
-                "top_offset": 0,
-                "maximum": 128
-              },
-              "type": "minecraft:range"
-            }
-          },
-          "type": "minecraft:decorated"
-        },
-        "decorator": {
-          "config": {},
-          "type": "minecraft:square"
-        }
-      },
-      "type": "minecraft:decorated"
-    },
     "decorator": {
+      "type": "minecraft:count",
       "config": {
-        "count": 10
-      },
-      "type": "minecraft:count"
+        "count": 20
+      }
+    },
+    "feature": {
+      "type": "minecraft:decorated",
+      "config": {
+        "decorator": {
+          "type": "minecraft:square",
+          "config": {}
+        },
+        "feature": {
+          "type": "minecraft:decorated",
+          "config": {
+            "decorator": {
+              "type": "minecraft:range",
+              "config": {
+                "maximum": 128,
+                "bottom_offset": 0,
+                "top_offset": 0
+              }
+            },
+            "feature": {
+              "type": "croodaceouscraft:rock_formation",
+              "config": {}
+            }
+          }
+        }
+      }
     }
-  },
-  "type": "minecraft:decorated"
+  }
 }

@@ -36,5 +36,6 @@ public class CroodsItems {
     public static final RegistryObject<BlockItem> CROODACEOUS_SANDSTONE_WALL = REGISTER.register("croodaceous_sandstone_wall", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SANDSTONE_WALL.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> CROODACEOUS_STONE = REGISTER.register("croodaceous_stone", () -> new BlockItem(CroodsBlocks.CROODACEOUS_STONE.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> DESERT_BAOBAB_BRANCHES = REGISTER.register("desert_baobab_branches", () -> new WallOrFloorItem(CroodsBlocks.DESERT_BAOBAB_BRANCHES.get(), CroodsBlocks.DESERT_BAOBAB_WALL_BRANCHES.get(), (new Item.Properties().group(GROUP))));
+    public static final RegistryObject<BlockItem> DESERT_BAOBAB_LOG = REGISTER.register("desert_baobab_log", () -> new BlockItem(CroodsBlocks.DESERT_BAOBAB_LOG.get(), new Item.Properties().group(GROUP)));
 
 }
