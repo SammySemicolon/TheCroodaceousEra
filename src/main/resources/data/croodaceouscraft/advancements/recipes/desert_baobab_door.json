@@ -1,0 +1,32 @@
+{
+  "parent": "croodaceouscraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "croodaceouscraft:desert_baobab_door"
+    ]
+  },
+  "criteria": {
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "croodaceouscraft:desert_baobab_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "croodaceouscraft:desert_baobab_door"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

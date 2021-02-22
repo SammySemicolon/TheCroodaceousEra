@@ -22,6 +22,7 @@ public class LiyoteHeldItemLayer extends LayerRenderer<LiyoteEntity, LiyoteModel
 
         matrixStackIn.translate((double)((this.getEntityModel()).head.rotationPointX / 16.0F), (double)((this.getEntityModel()).head.rotationPointY / 16.0F), (double)((this.getEntityModel()).head.rotationPointZ / 16.0F));
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(netHeadYaw));
+        matrixStackIn.rotate(Vector3f.XP.rotationDegrees(headPitch));
         matrixStackIn.rotate(Vector3f.XP.rotationDegrees(90));
         matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(90));
 

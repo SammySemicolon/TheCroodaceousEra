@@ -6,13 +6,8 @@ import mod.coda.croodaceouscraft.init.CroodsBlocks;
 import mod.coda.croodaceouscraft.init.CroodsEntities;
 import mod.coda.croodaceouscraft.init.CroodsFeatures;
 import mod.coda.croodaceouscraft.init.CroodsItems;
-import mod.coda.croodaceouscraft.util.ClientEventBusSubscriber;
+import mod.coda.croodaceouscraft.util.ClientEventHandler;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -45,6 +40,6 @@ public class Croods {
     }
 
     private void registerClient(FMLClientSetupEvent event) {
-        ClientEventBusSubscriber.clientSetup();
+        ClientEventHandler.clientSetup();
     }
 }

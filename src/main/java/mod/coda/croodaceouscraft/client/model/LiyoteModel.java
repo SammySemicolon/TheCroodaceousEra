@@ -95,23 +95,61 @@ public class LiyoteModel<T extends Entity> extends EntityModel<LiyoteEntity> {
     }
 
     @Override
-    public void setRotationAngles(LiyoteEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setLivingAnimations(LiyoteEntity entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
         float speed = 1.0f;
         float degree = 1.5f;
-        limbSwingAmount = MathHelper.clamp(limbSwingAmount, -0.5f, 0.5f);
+        if (entityIn.isEntitySleeping()) {
+            this.head.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 1.1F * limbSwingAmount + 0.35F;
+
+            this.leftLeg.rotateAngleX = -0.19826939703444338F;
+            this.leftLeg.rotateAngleZ = -0.3490658503988659F;
+
+            this.rightLeg.rotateAngleX = -0.23736478492913152F;
+            this.rightLeg.rotateAngleZ = 0.3490658503988659F;
+
+            this.rightArm.rotateAngleX = -0.17453292519943295F;
+            this.rightArm.rotateAngleZ = -0.16824974588436584F;
+
+            this.leftArm.rotateAngleX = -0.17453292519943295F;
+            this.leftArm.rotateAngleZ = 0.1195550520971359F;
+
+            this.body.rotateAngleX = -0.8595746566072073F;
+            this.body.rotateAngleY = 0;
+
+            this.chest.rotateAngleX = -0.19547687289441354F;
+            this.chest.rotateAngleY = 0.0F;
+
+            this.tail.rotateAngleX = 0.9773843811168246F;
+            this.tail.rotateAngleY = 0;
+
+            this.tongue.rotateAngleZ = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.4F * limbSwingAmount - 0.15F;
+            this.earLeft.rotateAngleZ = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.15F * limbSwingAmount;
+            this.earRight.rotateAngleZ = MathHelper.cos(0.5F + limbSwing * speed * 0.4F) * degree * -0.15F * limbSwingAmount;
+        }
+        else {
+            limbSwingAmount = MathHelper.clamp(limbSwingAmount, -0.5f, 0.5f);
+
+            this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 1.1F * limbSwingAmount + 0.4F;
+            this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * -1.1F * limbSwingAmount + 0.4F;
+            this.rightArm.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 1.1F * limbSwingAmount - 0.1F;
+            this.rightArm.rotateAngleZ = 0.2617993877991494F;
+            this.leftArm.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * -1.1F * limbSwingAmount - 0.1F;
+            this.leftArm.rotateAngleZ = -0.2617993877991494F;
+            this.body.rotateAngleY = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.4F * limbSwingAmount;
+            this.body.rotateAngleX = -0.2617993877991494F;
+            this.chest.rotateAngleY = MathHelper.cos(-1.0F + limbSwing * speed * 0.4F) * degree * -0.2F * limbSwingAmount;
+            this.tail.rotateAngleX = MathHelper.cos(-1.0F + limbSwing * speed * 0.4F) * degree * 0.3F * limbSwingAmount + 0.1F;
+            this.tail.rotateAngleY = MathHelper.cos(-1.0F + limbSwing * speed * 0.2F) * degree * 0.14F * limbSwingAmount;
+            this.tongue.rotateAngleZ = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.4F * limbSwingAmount - 0.15F;
+            this.earLeft.rotateAngleZ = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.15F * limbSwingAmount;
+            this.earRight.rotateAngleZ = MathHelper.cos(0.5F + limbSwing * speed * 0.4F) * degree * -0.15F * limbSwingAmount;
+        }
+    }
+
+    @Override
+    public void setRotationAngles(LiyoteEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.head.rotateAngleX = headPitch * ((float)Math.PI / 180F);
         this.head.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
-        this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 1.1F * limbSwingAmount + 0.4F;
-        this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * -1.1F * limbSwingAmount + 0.4F;
-        this.rightArm.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 1.1F * limbSwingAmount - 0.1F;
-        this.leftArm.rotateAngleX = MathHelper.cos(limbSwing * speed * 0.4F) * degree * -1.1F * limbSwingAmount - 0.1F;
-        this.body.rotateAngleY = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.4F * limbSwingAmount;
-        this.chest.rotateAngleY = MathHelper.cos(-1.0F + limbSwing * speed * 0.4F) * degree * -0.2F * limbSwingAmount;
-        this.tail.rotateAngleX = MathHelper.cos(-1.0F + limbSwing * speed * 0.4F) * degree * 0.3F * limbSwingAmount + 0.1F;
-        this.tail.rotateAngleY = MathHelper.cos(-1.0F + limbSwing * speed * 0.2F) * degree * 0.14F * limbSwingAmount;
-        this.tongue.rotateAngleZ = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.4F * limbSwingAmount - 0.15F;
-        this.earLeft.rotateAngleZ = MathHelper.cos(limbSwing * speed * 0.4F) * degree * 0.15F * limbSwingAmount;
-        this.earRight.rotateAngleZ = MathHelper.cos(0.5F + limbSwing * speed * 0.4F) * degree * -0.15F * limbSwingAmount;
     }
 
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {

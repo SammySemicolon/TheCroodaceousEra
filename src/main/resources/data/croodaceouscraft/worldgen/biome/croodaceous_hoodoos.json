@@ -1,7 +1,7 @@
 {
   "surface_builder": "croodaceouscraft:croodaceous_desert",
-  "depth": 0.125,
-  "scale": 0.08,
+  "depth": 0.825,
+  "scale": 0.02,
   "temperature": 0.8,
   "downfall": 0.1,
   "precipitation": "none",

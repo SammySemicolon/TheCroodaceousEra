@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "croodaceouscraft:block/desert_baobab_planks"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "croodaceouscraft:block/desert_baobab_planks"
+  }
+}

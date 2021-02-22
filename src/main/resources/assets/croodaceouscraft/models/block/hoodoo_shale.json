@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "croodaceouscraft:block/croodaceous_stone"
+    "all": "croodaceouscraft:block/hoodoo_shale"
   }
 }

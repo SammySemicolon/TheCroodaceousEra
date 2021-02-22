@@ -1,0 +1,6 @@
+{
+  "parent": "croodaceouscraft:block/croods_orientable_trapdoor_bottom",
+  "textures": {
+    "texture": "croodaceouscraft:block/desert_baobab_trapdoor"
+  }
+}

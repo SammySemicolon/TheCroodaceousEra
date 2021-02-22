@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "croodaceouscraft:block/desert_baobab_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "croodaceouscraft:block/desert_baobab_wood"
+    },
+    "axis=z": {
+      "model": "croodaceouscraft:block/desert_baobab_wood",
+      "x": 90
+    }
+  }
+}
