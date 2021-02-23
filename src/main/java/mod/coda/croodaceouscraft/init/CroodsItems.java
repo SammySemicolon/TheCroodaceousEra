@@ -39,6 +39,7 @@ public class CroodsItems {
     public static final RegistryObject<BlockItem> DESERT_BAOBAB_LOG = REGISTER.register("desert_baobab_log", () -> new BlockItem(CroodsBlocks.DESERT_BAOBAB_LOG.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> DESERT_BAOBAB_WOOD = REGISTER.register("desert_baobab_wood", () -> new BlockItem(CroodsBlocks.DESERT_BAOBAB_WOOD.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> STRIPPED_DESERT_BAOBAB_LOG = REGISTER.register("stripped_desert_baobab_log", () -> new BlockItem(CroodsBlocks.STRIPPED_DESERT_BAOBAB_LOG.get(), new Item.Properties().group(GROUP)));
+    public static final RegistryObject<BlockItem> STRIPPED_DESERT_BAOBAB_WOOD = REGISTER.register("stripped_desert_baobab_wood", () -> new BlockItem(CroodsBlocks.STRIPPED_DESERT_BAOBAB_WOOD.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> DESERT_BAOBAB_PLANKS = REGISTER.register("desert_baobab_planks", () -> new BlockItem(CroodsBlocks.DESERT_BAOBAB_PLANKS.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> DESERT_BAOBAB_STAIRS = REGISTER.register("desert_baobab_stairs", () -> new BlockItem(CroodsBlocks.DESERT_BAOBAB_STAIRS.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> DESERT_BAOBAB_FENCE = REGISTER.register("desert_baobab_fence", () -> new BlockItem(CroodsBlocks.DESERT_BAOBAB_FENCE.get(), new Item.Properties().group(GROUP)));
@@ -51,5 +52,11 @@ public class CroodsItems {
     public static final RegistryObject<BlockItem> HOODOO_SHALE = REGISTER.register("hoodoo_shale", () -> new BlockItem(CroodsBlocks.HOODOO_SHALE.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> POLISHED_HOODOO_SHALE = REGISTER.register("polished_hoodoo_shale", () -> new BlockItem(CroodsBlocks.POLISHED_HOODOO_SHALE.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> HOODOO_SHALE_TILES = REGISTER.register("hoodoo_shale_tiles", () -> new BlockItem(CroodsBlocks.HOODOO_SHALE_TLES.get(), new Item.Properties().group(GROUP)));
+    public static final RegistryObject<BlockItem> CHISELED_HOODOO_SHALE = REGISTER.register("chiseled_hoodoo_shale", () -> new BlockItem(CroodsBlocks.CHISELED_HOODOO_SHALE.get(), new Item.Properties().group(GROUP)));
+    public static final RegistryObject<BlockItem> HOODOO_SHALE_STAIRS = REGISTER.register("hoodoo_shale_stairs", () -> new BlockItem(CroodsBlocks.HOODOO_SHALE_STAIRS.get(), new Item.Properties().group(GROUP)));
+    public static final RegistryObject<BlockItem> POLISHED_HOODOO_SHALE_STAIRS = REGISTER.register("polished_hoodoo_shale_stairs", () -> new BlockItem(CroodsBlocks.POLISHED_HOODOO_SHALE_STAIRS.get(), new Item.Properties().group(GROUP)));
+    public static final RegistryObject<BlockItem> HOODOO_SHALE_SLAB = REGISTER.register("hoodoo_shale_slab", () -> new BlockItem(CroodsBlocks.HOODOO_SHALE_SLAB.get(), new Item.Properties().group(GROUP)));
+    public static final RegistryObject<BlockItem> POLISHED_HOODOO_SHALE_SLAB = REGISTER.register("polished_hoodoo_shale_slab", () -> new BlockItem(CroodsBlocks.POLISHED_HOODOO_SHALE_SLAB.get(), new Item.Properties().group(GROUP)));
+    public static final RegistryObject<BlockItem> HOODOO_SHALE_WALL = REGISTER.register("hoodoo_shale_wall", () -> new BlockItem(CroodsBlocks.HOODOO_SHALE_WALL.get(), new Item.Properties().group(GROUP)));
 
 }

@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "croodaceouscraft:block/hoodoo_shale",
+        "top": "croodaceouscraft:block/hoodoo_shale",
+        "side": "croodaceouscraft:block/hoodoo_shale"
+    }
+}

@@ -36,13 +36,20 @@ public class CroodsBlocks {
     public static final RegistryObject<Block> HOODOO_SHALE = register("hoodoo_shale", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
     public static final RegistryObject<Block> POLISHED_HOODOO_SHALE = register("polished_hoodoo_shale", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
     public static final RegistryObject<Block> HOODOO_SHALE_TLES = register("hoodoo_shale_tiles", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
+    public static final RegistryObject<Block> CHISELED_HOODOO_SHALE = register("chiseled_hoodoo_shale", () -> new Block(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
+    public static final RegistryObject<Block> HOODOO_SHALE_STAIRS = register("hoodoo_shale_stairs", () -> new StairsBlock(() -> HOODOO_SHALE.get().getDefaultState(), Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
+    public static final RegistryObject<Block> POLISHED_HOODOO_SHALE_STAIRS = register("polished_hoodoo_shale_stairs", () -> new StairsBlock(() -> POLISHED_HOODOO_SHALE.get().getDefaultState(), Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
+    public static final RegistryObject<Block> HOODOO_SHALE_SLAB = register("hoodoo_shale_slab", () -> new SlabBlock(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
+    public static final RegistryObject<Block> POLISHED_HOODOO_SHALE_SLAB = register("polished_hoodoo_shale_slab", () -> new SlabBlock(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
+    public static final RegistryObject<Block> HOODOO_SHALE_WALL = register("hoodoo_shale_wall", () -> new WallBlock(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
 
     // Desert Baobab
     public static final RegistryObject<Block> DESERT_BAOBAB_LOG = register("desert_baobab_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> DESERT_BAOBAB_WOOD = REGISTER.register("desert_baobab_wood", () -> new Block(Block.Properties.from(Blocks.OAK_WOOD)));
-    public static final RegistryObject<Block> STRIPPED_DESERT_BAOBAB_LOG = REGISTER.register("stripped_desert_baobab_log", () -> new RotatedPillarBlock(Block.Properties.from(Blocks.STRIPPED_OAK_LOG)));
+    public static final RegistryObject<Block> DESERT_BAOBAB_WOOD = REGISTER.register("desert_baobab_wood", () -> new RotatedPillarBlock(Block.Properties.from(DESERT_BAOBAB_LOG.get())));
+    public static final RegistryObject<Block> STRIPPED_DESERT_BAOBAB_LOG = REGISTER.register("stripped_desert_baobab_log", () -> new RotatedPillarBlock(Block.Properties.from(DESERT_BAOBAB_LOG.get())));
+    public static final RegistryObject<Block> STRIPPED_DESERT_BAOBAB_WOOD = REGISTER.register("stripped_desert_baobab_wood", () -> new RotatedPillarBlock(Block.Properties.from(DESERT_BAOBAB_LOG.get())));
     public static final RegistryObject<Block> DESERT_BAOBAB_PLANKS = REGISTER.register("desert_baobab_planks", () -> new Block(Block.Properties.from(Blocks.OAK_PLANKS)));
-    public static final RegistryObject<Block> DESERT_BAOBAB_STAIRS = REGISTER.register("desert_baobab_stairs", () -> new StairsBlock(() -> CroodsBlocks.DESERT_BAOBAB_PLANKS.get().getDefaultState(), Block.Properties.from(Blocks.OAK_STAIRS)));
+    public static final RegistryObject<Block> DESERT_BAOBAB_STAIRS = REGISTER.register("desert_baobab_stairs", () -> new StairsBlock(() -> DESERT_BAOBAB_PLANKS.get().getDefaultState(), Block.Properties.from(Blocks.OAK_STAIRS)));
     public static final RegistryObject<Block> DESERT_BAOBAB_FENCE = REGISTER.register("desert_baobab_fence", () -> new FenceBlock(Block.Properties.from(Blocks.OAK_FENCE)));
     public static final RegistryObject<Block> DESERT_BAOBAB_SLAB = REGISTER.register("desert_baobab_slab", () -> new SlabBlock(Block.Properties.from(Blocks.OAK_SLAB)));
     public static final RegistryObject<Block> DESERT_BAOBAB_PRESSURE_PLATE = REGISTER.register("desert_baobab_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.from(Blocks.OAK_PRESSURE_PLATE)));
