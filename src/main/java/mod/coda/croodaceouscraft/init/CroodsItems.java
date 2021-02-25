@@ -19,6 +19,9 @@ public class CroodsItems {
     };
 
     public static final RegistryObject<Item> RAMU_EGG = REGISTER.register("ramu_egg", () -> new Item(new Item.Properties().group(GROUP).maxStackSize(1).food(new Food.Builder().hunger(8).saturation(0.5f).build())));
+    public static final RegistryObject<Item> BAOBAB_BOAT_ITEM = REGISTER.register("baobab_boat_item", () -> new BoatItem(CroodsEntities.BAOBAB_BOAT, new Item.Properties().group(GROUP).maxStackSize(1)));
+
+    // Spawn Eggs
     public static final RegistryObject<Item> JACKROBAT_SPAWN_EGG = REGISTER.register("jackrobat_spawn_egg", () -> new CroodsSpawnEggItem(CroodsEntities.JACKROBAT, 0x653941, 0x993e30, new Item.Properties().group(GROUP)));
     public static final RegistryObject<Item> LIYOTE_SPAWN_EGG = REGISTER.register("liyote_spawn_egg", () -> new CroodsSpawnEggItem(CroodsEntities.LIYOTE, 0xd67924, 0x8990d7, new Item.Properties().group(GROUP)));
 
