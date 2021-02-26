@@ -19,11 +19,12 @@ public class CroodsItems {
     };
 
     public static final RegistryObject<Item> RAMU_EGG = REGISTER.register("ramu_egg", () -> new Item(new Item.Properties().group(GROUP).maxStackSize(1).food(new Food.Builder().hunger(8).saturation(0.5f).build())));
-    public static final RegistryObject<Item> BAOBAB_BOAT_ITEM = REGISTER.register("baobab_boat_item", () -> new BoatItem(CroodsEntities.BAOBAB_BOAT, new Item.Properties().group(GROUP).maxStackSize(1)));
+    // public static final RegistryObject<Item> BAOBAB_BOAT_ITEM = REGISTER.register("baobab_boat_item", () -> new BoatItem(CroodsEntities.BAOBAB_BOAT, new Item.Properties().group(GROUP).maxStackSize(1)));
 
     // Spawn Eggs
     public static final RegistryObject<Item> JACKROBAT_SPAWN_EGG = REGISTER.register("jackrobat_spawn_egg", () -> new CroodsSpawnEggItem(CroodsEntities.JACKROBAT, 0x653941, 0x993e30, new Item.Properties().group(GROUP)));
     public static final RegistryObject<Item> LIYOTE_SPAWN_EGG = REGISTER.register("liyote_spawn_egg", () -> new CroodsSpawnEggItem(CroodsEntities.LIYOTE, 0xd67924, 0x8990d7, new Item.Properties().group(GROUP)));
+    public static final RegistryObject<Item> BEAR_OWL_SPAWN_EGG = REGISTER.register("bear_owl_spawn_egg", () -> new CroodsSpawnEggItem(CroodsEntities.BEAR_OWL, 0x3e322f, 0x9f9284, new Item.Properties().group(GROUP)));
 
     // Block Items
     public static final RegistryObject<BlockItem> CROODACEOUS_SHRUB = REGISTER.register("croodaceous_shrub", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SHRUB.get(), new Item.Properties().group(GROUP)));

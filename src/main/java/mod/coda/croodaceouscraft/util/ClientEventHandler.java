@@ -1,6 +1,7 @@
 package mod.coda.croodaceouscraft.util;
 
 import mod.coda.croodaceouscraft.Croods;
+import mod.coda.croodaceouscraft.client.renderer.BearOwlRenderer;
 import mod.coda.croodaceouscraft.client.renderer.JackrobatRenderer;
 import mod.coda.croodaceouscraft.client.renderer.LiyoteRenderer;
 import mod.coda.croodaceouscraft.init.CroodsBlocks;
@@ -22,9 +23,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class ClientEventHandler {
 
     public static void clientSetup() {
-        RenderTypeLookup.setRenderLayer(CroodsBlocks.CROODACEOUS_SHRUB.get(), RenderType.getCutout());
         RenderingRegistry.registerEntityRenderingHandler(CroodsEntities.JACKROBAT.get(), JackrobatRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(CroodsEntities.LIYOTE.get(), LiyoteRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(CroodsEntities.BEAR_OWL.get(), BearOwlRenderer::new);
+
+        RenderTypeLookup.setRenderLayer(CroodsBlocks.CROODACEOUS_SHRUB.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(CroodsBlocks.DESERT_BAOBAB_WALL_BRANCHES.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(CroodsBlocks.DESERT_BAOBAB_BRANCHES.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(CroodsBlocks.DESERT_BAOBAB_TRAPDOOR.get(), RenderType.getCutout());

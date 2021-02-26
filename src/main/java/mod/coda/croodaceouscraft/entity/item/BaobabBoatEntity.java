@@ -20,7 +20,7 @@ public class BaobabBoatEntity extends BoatEntity {
         super(type, world);
         this.preventEntitySpawning = true;
     }
-
+/*
     public BaobabBoatEntity(World worldIn, double x, double y, double z) {
         this(CroodsEntities.BAOBAB_BOAT.get(), worldIn);
         this.setPosition(x, y, z);
@@ -71,5 +71,5 @@ public class BaobabBoatEntity extends BoatEntity {
             }
 
         }
-    }
+    }*/
 }

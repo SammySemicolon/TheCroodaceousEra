@@ -24,10 +24,10 @@ import java.util.function.Predicate;
 public class BaobabBoatItem extends Item {
     private static final Predicate<Entity> field_219989_a = EntityPredicates.NOT_SPECTATING.and(Entity::canBeCollidedWith);
 
-    public BaobabBoatItem(CroodsEntities. Item.Properties properties) {
+    public BaobabBoatItem(Item.Properties properties) {
         super(properties);
     }
-
+/*
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
         RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.ANY);
@@ -68,5 +68,5 @@ public class BaobabBoatItem extends Item {
                 return ActionResult.resultPass(itemstack);
             }
         }
-    }
+    }*/
 }

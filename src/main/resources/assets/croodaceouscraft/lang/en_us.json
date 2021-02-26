@@ -3,6 +3,10 @@
 
   "item.croodaceouscraft.ramu_egg": "Ramu Egg",
 
+  "item.croodaceouscraft.jackrobat_spawn_egg": "Jackrobat Spawn Egg",
+  "item.croodaceouscraft.liyote_spawn_egg": "Liyote Spawn Egg",
+  "item.croodaceouscraft.bear_owl_spawn_egg": "Bear Owl Spawn Egg",
+
   "block.croodaceouscraft.croodaceous_sand": "Croodaceous Sand",
   "block.croodaceouscraft.croodaceous_sandstone": "Croodaceous Sandstone",
   "block.croodaceouscraft.croodaceous_sandstone_stairs": "Croodaceous Sandstone Stairs",
@@ -47,9 +51,7 @@
   
   "entity.croodaceouscraft.jackrobat": "Jackrobat",
   "entity.croodaceouscraft.liyote": "Liyote",
-
-  "item.croodaceouscraft.jackrobat_spawn_egg": "Jackrobat Spawn Egg",
-  "item.croodaceouscraft.liyote_spawn_egg": "Liyote Spawn Egg",
+  "entity.croodaceouscraft.bear_owl": "Bear Owl",
 
   "biome.croodaceouscraft.croodaceous_desert": "Croodaceous Desert"
 }

@@ -1,5 +1,6 @@
 package mod.coda.croodaceouscraft;
 
+import mod.coda.croodaceouscraft.entity.BearOwlEntity;
 import mod.coda.croodaceouscraft.entity.JackrobatEntity;
 import mod.coda.croodaceouscraft.entity.LiyoteEntity;
 import mod.coda.croodaceouscraft.init.CroodsBlocks;
@@ -33,6 +34,7 @@ public class Croods {
     private void registerEntityAttributes() {
         GlobalEntityTypeAttributes.put(CroodsEntities.JACKROBAT.get(), JackrobatEntity.registerAttributes().create());
         GlobalEntityTypeAttributes.put(CroodsEntities.LIYOTE.get(), LiyoteEntity.registerAttributes().create());
+        GlobalEntityTypeAttributes.put(CroodsEntities.BEAR_OWL.get(), BearOwlEntity.registerAttributes().create());
     }
 
     private void registerCommon(FMLCommonSetupEvent event) {
