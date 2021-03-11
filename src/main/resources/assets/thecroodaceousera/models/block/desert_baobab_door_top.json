@@ -1,0 +1,7 @@
+{
+  "parent": "thecroodaceousera:block/croods_door_top",
+  "textures": {
+    "top": "thecroodaceousera:block/desert_baobab_door_top",
+    "bottom": "thecroodaceousera:block/desert_baobab_door_bottom"
+  }
+}

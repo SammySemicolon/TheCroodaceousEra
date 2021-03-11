@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "croodaceouscraft:block/desert_baobab_planks",
-    "top": "croodaceouscraft:block/desert_baobab_planks",
-    "side": "croodaceouscraft:block/desert_baobab_planks"
-  }
-}

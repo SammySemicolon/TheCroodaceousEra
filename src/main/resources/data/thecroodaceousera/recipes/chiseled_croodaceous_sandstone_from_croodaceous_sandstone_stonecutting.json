@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "thecroodaceousera:croodaceous_sandstone"
+  },
+  "result": "thecroodaceousera:chiseled_croodaceous_sandstone",
+  "count": 1
+}

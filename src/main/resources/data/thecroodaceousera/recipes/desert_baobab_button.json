@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "thecroodaceousera:desert_baobab_planks"
+    }
+  ],
+  "result": {
+    "item": "thecroodaceousera:desert_baobab_button"
+  }
+}

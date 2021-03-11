@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "thecroodaceousera:block/croodaceous_sandstone_top",
+        "top": "thecroodaceousera:block/croodaceous_sandstone_top",
+        "side": "thecroodaceousera:block/cut_croodaceous_sandstone"
+    }
+}

@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "croodaceouscraft:block/croodaceous_sandstone_top",
-        "side": "croodaceouscraft:block/cut_croodaceous_sandstone"
-    }
-}

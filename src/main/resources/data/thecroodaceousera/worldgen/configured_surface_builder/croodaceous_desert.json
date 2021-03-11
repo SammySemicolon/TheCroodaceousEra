@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:badlands",
+  "config": {
+    "top_material": {
+      "Name": "thecroodaceousera:croodaceous_sand",
+      "Properties": {
+        "snowy": "false"
+      }
+    },
+    "under_material": {
+      "Name": "thecroodaceousera:croodaceous_sandstone"
+    },
+    "underwater_material": {
+      "Name": "thecroodaceousera:croodaceous_sand"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "thecroodaceousera:block/desert_baobab_slab"
+    },
+    "type=double": {
+      "model": "thecroodaceousera:block/desert_baobab_planks"
+    },
+    "type=top": {
+      "model": "thecroodaceousera:block/desert_baobab_slab_top"
+    }
+  }
+}

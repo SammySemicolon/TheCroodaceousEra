@@ -1,0 +1,32 @@
+{
+  "parent": "thecroodaceousera:recipes/root",
+  "rewards": {
+    "recipes": [
+      "thecroodaceousera:desert_baobab_planks"
+    ]
+  },
+  "criteria": {
+    "has_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "thecroodaceousera:desert_baobab_logs"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "thecroodaceousera:desert_baobab_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_log",
+      "has_the_recipe"
+    ]
+  ]
+}

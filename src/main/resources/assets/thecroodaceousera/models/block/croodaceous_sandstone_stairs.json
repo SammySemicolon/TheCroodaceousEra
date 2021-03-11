@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "thecroodaceousera:block/croodaceous_sandstone_bottom",
+        "top": "thecroodaceousera:block/croodaceous_sandstone_top",
+        "side": "thecroodaceousera:block/croodaceous_sandstone"
+    }
+}

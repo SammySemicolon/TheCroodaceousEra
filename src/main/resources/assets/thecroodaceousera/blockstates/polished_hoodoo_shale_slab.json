@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "thecroodaceousera:block/polished_hoodoo_shale_slab" },
+        "type=top": { "model": "thecroodaceousera:block/polished_hoodoo_shale_slab_top" },
+        "type=double": { "model": "thecroodaceousera:block/polished_hoodoo_shale" }
+    }
+}

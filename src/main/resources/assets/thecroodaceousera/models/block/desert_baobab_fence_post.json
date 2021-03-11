@@ -1,0 +1,6 @@
+{
+  "parent": "block/fence_post",
+  "textures": {
+    "texture": "thecroodaceousera:block/desert_baobab_planks"
+  }
+}

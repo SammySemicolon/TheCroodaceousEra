@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "thecroodaceousera:block/hoodoo_shale",
+        "top": "thecroodaceousera:block/hoodoo_shale",
+        "side": "thecroodaceousera:block/hoodoo_shale"
+    }
+}

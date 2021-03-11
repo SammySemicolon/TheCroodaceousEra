@@ -1,0 +1,32 @@
+{
+  "parent": "thecroodaceousera:recipes/root",
+  "rewards": {
+    "recipes": [
+      "thecroodaceousera:stripped_desert_baobab_wood"
+    ]
+  },
+  "criteria": {
+    "has_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "thecroodaceousera:stripped_desert_baobab_log"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "thecroodaceousera:stripped_desert_baobab_wood"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_log",
+      "has_the_recipe"
+    ]
+  ]
+}

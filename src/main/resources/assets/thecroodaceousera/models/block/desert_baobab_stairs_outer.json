@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "thecroodaceousera:block/desert_baobab_planks",
+    "top": "thecroodaceousera:block/desert_baobab_planks",
+    "side": "thecroodaceousera:block/desert_baobab_planks"
+  }
+}

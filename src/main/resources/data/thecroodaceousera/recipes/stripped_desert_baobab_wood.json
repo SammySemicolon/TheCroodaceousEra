@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "thecroodaceousera:stripped_desert_baobab_log"
+    }
+  },
+  "result": {
+    "item": "thecroodaceousera:stripped_desert_baobab_wood",
+    "count": 3
+  }
+}

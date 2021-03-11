@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "thecroodaceousera:block/desert_baobab_log",
+    "side": "thecroodaceousera:block/desert_baobab_log"
+  }
+}
