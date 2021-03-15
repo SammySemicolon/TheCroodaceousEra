@@ -1,6 +1,7 @@
 package mod.coda.thecroodaceousera.init;
 
 import mod.coda.thecroodaceousera.Croods;
+import mod.coda.thecroodaceousera.block.BaobabSaplingBlock;
 import mod.coda.thecroodaceousera.block.BranchesBlock;
 import mod.coda.thecroodaceousera.block.BranchesWallBlock;
 import mod.coda.thecroodaceousera.block.CroodaceousShrubBlock;
@@ -41,6 +42,9 @@ public class CroodsBlocks {
     public static final RegistryObject<Block> HOODOO_SHALE_WALL = register("hoodoo_shale_wall", () -> new WallBlock(Block.Properties.create(Material.ROCK, MaterialColor.BROWN).hardnessAndResistance(1.5f, 6.0f).setRequiresTool()));
 
     // Desert Baobab
+    
+    public static final RegistryObject<Block> DESERT_BAOBAB_SAPLING = register("desert_baobab_sapling", () -> new BaobabSaplingBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(0).sound(SoundType.PLANT)));
+
     public static final RegistryObject<Block> DESERT_BAOBAB_LOG = register("desert_baobab_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DESERT_BAOBAB_WOOD = REGISTER.register("desert_baobab_wood", () -> new RotatedPillarBlock(Block.Properties.from(DESERT_BAOBAB_LOG.get())));
     public static final RegistryObject<Block> STRIPPED_DESERT_BAOBAB_LOG = REGISTER.register("stripped_desert_baobab_log", () -> new RotatedPillarBlock(Block.Properties.from(DESERT_BAOBAB_LOG.get())));
