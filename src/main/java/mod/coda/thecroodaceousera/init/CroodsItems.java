@@ -25,6 +25,8 @@ public class CroodsItems {
     public static final RegistryObject<Item> LIYOTE_SPAWN_EGG = REGISTER.register("liyote_spawn_egg", () -> new CroodsSpawnEggItem(CroodsEntities.LIYOTE, 0xd67924, 0x8990d7, new Item.Properties().group(GROUP)));
 
     // Block Items
+    public static final RegistryObject<BlockItem> DESERT_BAOBAB_SAPLING = REGISTER.register("desert_baobab_sapling", () -> new BlockItem(CroodsBlocks.DESERT_BAOBAB_SAPLING.get(), new Item.Properties().group(GROUP)));
+
     public static final RegistryObject<BlockItem> CROODACEOUS_SHRUB = REGISTER.register("croodaceous_shrub", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SHRUB.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> CROODACEOUS_SAND = REGISTER.register("croodaceous_sand", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SAND.get(), new Item.Properties().group(GROUP)));
     public static final RegistryObject<BlockItem> CROODACEOUS_SANDSTONE = REGISTER.register("croodaceous_sandstone", () -> new BlockItem(CroodsBlocks.CROODACEOUS_SANDSTONE.get(), new Item.Properties().group(GROUP)));
