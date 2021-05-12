@@ -49,8 +49,8 @@ public class DesertBaobabFeature extends Feature<NoFeatureConfig>
     @Override
     public boolean generate(ISeedReader iSeedReader, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, NoFeatureConfig noFeatureConfig)
     {
-        ArrayList<Pair<BlockPos, BlockState>> filler = new ArrayList<>();
-        ArrayList<Pair<BlockPos, BlockState>> leavesFiller = new ArrayList<>();
+        ArrayList<Entry> filler = new ArrayList<>();
+        ArrayList<Entry> leavesFiller = new ArrayList<>();
         int trunkHeight = minimumTrunkHeight + random.nextInt(trunkHeightExtra + 1);
         for (int i = 0; i < trunkHeight; i++)
         {
@@ -100,7 +100,7 @@ public class DesertBaobabFeature extends Feature<NoFeatureConfig>
                 {
                     return false;
                 }
-                filler.add(Pair.of(trunkTopPos, trunk));
+                filler.add(new Entry(trunkTopPos, trunk));
                 if (i == trunkTopHeight - 1)
                 {
                     int branchHeight = minimumTopBranchHeight + random.nextInt(topBranchHeightExtra + 1);
@@ -118,7 +118,7 @@ public class DesertBaobabFeature extends Feature<NoFeatureConfig>
         return false;
     }
     
-    public static boolean makeBranch(ArrayList<Pair<BlockPos, BlockState>> filler, ArrayList<Pair<BlockPos, BlockState>> leavesFiller, ISeedReader reader, BlockPos pos, int height)
+    public static boolean makeBranch(ArrayList<Entry> filler, ArrayList<Entry> leavesFiller, ISeedReader reader, BlockPos pos, int height)
     {
         for (int k = 0; k < height; k++)
         {
@@ -127,22 +127,22 @@ public class DesertBaobabFeature extends Feature<NoFeatureConfig>
             {
                 return false;
             }
-            filler.add(Pair.of(branchPos, trunk));
+            filler.add(new Entry(branchPos, trunk));
             if (k == height-1)
             {
                 for (Direction direction : DIRECTIONS)
                 {
                     BlockPos leavesPos =  branchPos.offset(direction);
-                    leavesFiller.add(Pair.of(leavesPos, leaves.with(BranchesWallBlock.FACING, direction)));
+                    leavesFiller.add(new Entry(leavesPos, leaves.with(BranchesWallBlock.FACING, direction)));
                 }
-                leavesFiller.add(Pair.of(branchPos.up(), leavesTop));
+                leavesFiller.add(new Entry(branchPos.up(), leavesTop));
     
             }
         }
         return true;
     }
     
-    public static boolean makeSlice(ArrayList<Pair<BlockPos, BlockState>> filler, ISeedReader reader, BlockPos pos, int sliceSize)
+    public static boolean makeSlice(ArrayList<Entry> filler, ISeedReader reader, BlockPos pos, int sliceSize)
     {
         for (int x = -sliceSize; x <= sliceSize; x++)
         {
@@ -157,21 +157,21 @@ public class DesertBaobabFeature extends Feature<NoFeatureConfig>
                 {
                     return false;
                 }
-                filler.add(Pair.of(slicePos, trunk));
+                filler.add(new Entry(slicePos, trunk));
             }
         }
         return true;
     }
     
-    public static void fill(ISeedReader reader, ArrayList<Pair<BlockPos, BlockState>> filler, boolean careful)
+    public static void fill(ISeedReader reader, ArrayList<Entry> filler, boolean careful)
     {
-        for (Pair<BlockPos, BlockState> pair : filler)
+        for (Entry entry : filler)
         {
-            if (careful && !canPlace(reader, pair.first))
+            if (careful && !canPlace(reader, entry.pos))
             {
                 continue;
             }
-            reader.setBlockState(pair.first, pair.second, 3);
+            reader.setBlockState(entry.pos, entry.state, 3);
         }
     }
     
